@@ -1,0 +1,69 @@
+# Producer-Consumer Problem
+
+This code implements the producer-consumer problem using a shared buffer. The producer thread generates student information and XML files, while the consumer thread reads the XML files, calculates average marks, and prints student information.
+
+The code uses the following Python libraries:
+
+* `threading` for multithreading
+* `random` for generating random numbers
+* `xml.etree.ElementTree` for parsing XML files
+
+To run the code, save it as a Python file and then run it from the command line. For example, if the file is named `producer_consumer.py`, you would run it as follows:
+
+
+python producer_consumer.py
+
+
+The output of the code will be a list of student information, including their name, student ID, program, courses, marks, average mark, and pass/fail status.
+
+## How the code works
+
+The producer thread generates student information and XML files as follows:
+
+1. It generates a random name for the student.
+2. It generates a random student ID.
+3. It generates a random program.
+4. It generates a list of courses.
+5. It generates a list of marks for the courses.
+6. It creates an XML file with the student information.
+7. It inserts the file number into the shared buffer.
+
+The consumer thread reads the XML files and calculates the average mark for each student as follows:
+
+1. It removes a file number from the shared buffer.
+2. It reads the XML file for the student.
+3. It gets the student's name, student ID, program, courses, and marks.
+4. It calculates the student's average mark.
+5. It prints the student's information.
+
+The code uses a shared buffer to ensure that the producer thread does not generate student information faster than the consumer thread can read it. The shared buffer is a list of file numbers. The producer thread inserts file numbers into the buffer, and the consumer thread removes file numbers from the buffer.
+
+## Example output
+
+The following is an example of the output of the code:
+
+
+Student Name: Student 1
+Student ID: 25282728
+Program: Software Engineering
+Courses and Marks:
+OOP - 98
+Data Structures - 12
+Algorithms - 77
+Web Development - 96
+Databases - 95
+Average Mark: 75.6
+Pass/Fail: Pass
+
+Student Name: Student 2
+Student ID: 82756727
+Program: Information Technology
+Courses and Marks:
+OOP - 97
+Data Structures - 26
+Algorithms - 95
+Web Development - 83
+Databases - 86
+Average Mark: 77.4
+Pass/Fail: Pass
+
